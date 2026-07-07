@@ -6,26 +6,23 @@
 // ============================================================
 const projects = [
   {
-    title: "Project One",
-    description: "A short description of what this project does and why you built it.",
-    tags: ["Python", "Flask"],
-    github: "https://github.com/yourusername/project-one",
-    demo: null,
+    title: "Seedbot: An Agricultural Law Q&A Chatbot",
+    description: "A chatbot designed to simplify agricultural law for farmers using Retrieval-Augmented Generation (RAG) to provide accurate and context-aware answers.",
+    tags: ["Python", "NLP", "RAG"],
+    poster: "images/Agribot Final Poster-ABRCMS FINAL-1.png"
   },
   {
-    title: "Project Two",
-    description: "Another project you're proud of. What problem did it solve?",
-    tags: ["JavaScript", "React"],
-    github: "https://github.com/yourusername/project-two",
-    demo: "https://yourproject.netlify.app",
+    title: "Examining Polling Location Changes After the Shelby Decision ",
+    description: "A data analysis project that investigates the impact of the Shelby v. Holder decision on polling locations in Georgia, utilizing Python, R and data visualization techniques to uncover trends and insights.",
+    tags: ["Python", "R", "Data Analysis", "Data Visualization"],
+    poster: "images/Dream Makers Summit Voting Poster.jpg",
   },
   {
-    title: "Project Three",
-    description: "Keep it brief — one or two sentences is plenty.",
-    tags: ["Java", "Algorithms"],
-    github: "https://github.com/yourusername/project-three",
-    demo: null,
-  },
+    title: "An Early Study on Air Pollution in Minority Communities",
+    description: "A research project that explores the correlation between air pollution levels and minority communities in 28 Georgia counties, employing statistical analysis and data visualization to highlight environmental justice issues.",
+    tags: ["R", "Data Analysis", "Data Visualization", "Environmental Justice"],
+    poster: "images/EJSP EPA Poster.jpg",
+  }
 ];
 
 // ============================================================
@@ -51,6 +48,7 @@ function renderProjects() {
     .map(
       (project) => `
       <div class="project-card">
+        <img src="${project.poster}" alt="${project.title} poster" class="project-poster" />
         <h3>${project.title}</h3>
         <p>${project.description}</p>
         <div class="project-tags">
@@ -65,6 +63,39 @@ function renderProjects() {
     )
     .join("");
 }
+
+function setupPosterModal() {
+  const modal = document.getElementById("poster-modal");
+  const modalImage = document.getElementById("modal-image");
+  const closeModal = document.querySelector(".modal .close");
+
+  // Add click event to each project poster
+  document.querySelectorAll(".project-poster").forEach((poster) => {
+    poster.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImage.src = poster.src; // Set the modal image to the clicked poster
+      modalImage.alt = poster.alt; // Set the alt text for accessibility
+    });
+  });
+
+  // Close the modal when the close button is clicked
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close the modal when clicking outside the image
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+}
+
+// Call the setup function after the DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed");
+  setupPosterModal();
+});
 
 // ============================================================
 // RENDER SKILLS
