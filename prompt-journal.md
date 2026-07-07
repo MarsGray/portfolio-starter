@@ -19,32 +19,32 @@ For each entry, note:
 ## Phase 1 — Setup & Orientation
 
 ### Entry 1
-- **Feature/task:** 
-- **Copilot feature used:** 
+- **Feature/task:** Updating name and tagline
+- **Copilot feature used:** Used Ask mode
 - **Prompt:**
-  > 
-- **Result:** 
-- **What I changed or did next:** 
+  > Under the hero section in index.html, I want to update the tagline to include both my real name (Amari Gray) and a tagline that would best fit my interests.
+- **Result:** Provided the updated code for the hero section, but did not actually change the tagline, just updated the name.
+- **What I changed or did next:** I gave it some information about myself so that it will improve the tagline to better fit my interests 
 
 ---
 
 ## Phase 2 — Guided Tasks
 
 ### Entry 2 — About section
-- **Copilot feature used:** 
-- **Prompt:**
-  > 
-- **Result:** 
+- **Copilot feature used:** Used Ask mode
+- **Prompt:** 
+  > Adjust it further, I want to include some more of my actual hobbies (gaming, reading fiction books, american football)
+- **Result:** Updated the about me section and included some of my actual hobbies.
 - **What I changed or did next:** 
-
+I then asked it to improve the bio some more and to change how it wrote about my interests. I also had to play with the chat and get it to include my headshot and that required a few fixs (atleast on my end) to get my headshot on there properly.
 ---
 
 ### Entry 3 — Projects
-- **Copilot feature used:** 
+- **Copilot feature used:** Used Ask mode
 - **Prompt:**
-  > 
-- **Result:** 
-- **What I changed or did next:** 
+  > Since, I currently do not have live demos or github repos for all of the projects that I have done, rather than include those things in the projects. I want to include the posters from each of the projects that I have done. How would I go about doing that?
+- **Result:** Gave information on how to include the posters in the project cards
+- **What I changed or did next:** What I am doing next is trying to add a feature to expand the posters each time a user clicks on it. Which is what I have been talking with copilot about for a while.
 
 ---
 
