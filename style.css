@@ -392,13 +392,50 @@ footer {
    TODO: This is a start, but there's more to do on mobile.
    Ask Copilot: "Improve the responsive styles for screens under 600px"
    ============================================================ */
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+   @media (max-width: 600px) {
+    /* Stack nav links or hide them */
+    .nav-links {
+      display: none; /* Hide nav links by default */
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .dark-mode-toggle {
+      margin-top: 1rem;
+    }
+  
+    /* Hero text adjustments */
+    .hero h1 {
+      font-size: 2rem; /* Smaller font size */
+    }
+  
+    .hero-subtitle {
+      font-size: 1rem; /* Adjust subtitle size */
+    }
+  
+    /* Projects grid single-column */
+    .projects-grid {
+      grid-template-columns: 1fr; /* Single column */
+    }
+  
+    /* About section adjustments */
+    .about-grid {
+      grid-template-columns: 1fr; /* Stack content */
+      text-align: center; /* Center-align text */
+    }
+  
+    .about-image {
+      margin: 0 auto; /* Center the image */
+    }
+  
+    /* Skills section adjustments */
+    .skills-container {
+      justify-content: center; /* Center skills badges */
+    }
   }
-
-  .avatar-placeholder {
-    width: 100px;
-    height: 100px;
-  }
-}
