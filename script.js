@@ -111,13 +111,25 @@ function renderSkills() {
 
 // ============================================================
 // DARK MODE TOGGLE
-// TODO: Implement this! Here's a stub to get you started.
-// Ask Copilot (inline chat on this function): "Implement dark mode
-// toggle that saves preference to localStorage"
 // ============================================================
 function toggleDarkMode() {
-  // Your implementation here
+  const html = document.documentElement; // Select the <html> element
+  const isDarkMode = html.getAttribute("data-theme") === "dark";
+
+  if (isDarkMode) {
+    html.setAttribute("data-theme", "light"); // Switch to light mode
+    localStorage.setItem("theme", "light"); // Save preference
+  } else {
+    html.setAttribute("data-theme", "dark"); // Switch to dark mode
+    localStorage.setItem("theme", "dark"); // Save preference
+  }
 }
+
+// Apply saved theme preference on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme") || "light"; // Default to light mode
+  document.documentElement.setAttribute("data-theme", savedTheme);
+});
 
 // ============================================================
 // UPDATE FOOTER YEAR
