@@ -68,14 +68,18 @@ function setupPosterModal() {
   const modal = document.getElementById("poster-modal");
   const modalImage = document.getElementById("modal-image");
   const closeModal = document.querySelector(".modal .close");
+  const projectsContainer = document.getElementById("projects-container");
 
-  // Add click event to each project poster
-  document.querySelectorAll(".project-poster").forEach((poster) => {
-    poster.addEventListener("click", () => {
-      modal.style.display = "block";
-      modalImage.src = poster.src; // Set the modal image to the clicked poster
-      modalImage.alt = poster.alt; // Set the alt text for accessibility
-    });
+  if (!modal || !modalImage || !closeModal || !projectsContainer) return;
+
+  // Listen on the container so posters added by renderProjects() still work.
+  projectsContainer.addEventListener("click", (event) => {
+    const poster = event.target.closest(".project-poster");
+    if (!poster || !projectsContainer.contains(poster)) return;
+
+    modal.style.display = "block";
+    modalImage.src = poster.src;
+    modalImage.alt = poster.alt;
   });
 
   // Close the modal when the close button is clicked

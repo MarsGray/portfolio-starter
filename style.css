@@ -283,6 +283,7 @@ h2::after {
   border-radius: 8px;
   margin-bottom: 1rem;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .project-card:hover {
