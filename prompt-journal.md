@@ -49,40 +49,40 @@ I then asked it to improve the bio some more and to change how it wrote about my
 ---
 
 ### Entry 4 — Dark mode
-- **Copilot feature used:** 
+- **Copilot feature used:** Inline chat 
 - **Prompt:**
-  > 
-- **Result:** 
-- **What I changed or did next:** 
+  > How to actually implement the dark mode toggle on the website. As of right now, it is just a button that does nothing. (After using both starter prompts)
+- **Result:** The initial code to make the function for dark mode toggle was wrong, after using the prompt above copilot gave the correct code to change the dark mode.
+- **What I changed or did next:** No other changes were needed. The dark mode toggle was implemented after the prompt was used.
 
 ---
 
 ### Entry 5 — Responsive layout
-- **Copilot feature used:** 
+- **Copilot feature used:** Ask mode/ Agent mode
 - **Prompt:**
-  > 
-- **Result:** 
-- **What I changed or did next:** 
+  > Improve the responsive styles in this CSS file for screens under 600px. The nav links should stack or hide, the hero text should be smaller, and the projects grid should be single-column
+- **Result:** When used in agent mode, it said that changes were made but nothing was actually changed in style.css
+- **What I changed or did next:** Did the exact same prompt but in ask mode and it gave me the proper changes that I asked from it. 
 
 ---
 
 ## Phase 3 — Independent Feature
 
-**Feature I chose:** 
+**Feature I chose:** Animated hero heading typing effect
 
 ### Entry 6
-- **Copilot feature used:** 
+- **Copilot feature used:** Inline chat
 - **Prompt:**
-  > 
-- **Result:** 
-- **What I changed or did next:** 
+  > I want to add an animated typing effect to the hero heading. 
+- **Result:** Provided a typing effect but was only for my name and not for the entire heading. 
+- **What I changed or did next:** Asked it to make the typing effect for the entire heading and made it keep the color difference between my name and the rest of the heading.
 
 ### Entry 7
-- **Copilot feature used:** 
+- **Copilot feature used:** Agent mode
 - **Prompt:**
-  > 
-- **Result:** 
-- **What I changed or did next:** 
+  > I want to add an scrolling animation such that elements fade/slide in as the user scrolls down.
+- **Result:** Provided the proper code to implement the scrolling animation. It worked as intended.
+- **What I changed or did next:** I did not provide any other changes or did any more prompts for this feature.
 
 ### Entry 8 — A prompt that didn't work well
 - **Copilot feature used:** 

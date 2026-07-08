@@ -91,6 +91,37 @@ function setupPosterModal() {
   });
 }
 
+// ============================================================
+// SCROLL ANIMATIONS
+// ============================================================
+function setupScrollAnimations() {
+  const animatedElements = document.querySelectorAll("[data-reveal]");
+
+  if (!animatedElements.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    animatedElements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, observerInstance) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observerInstance.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
+
+  animatedElements.forEach((element) => observer.observe(element));
+}
+
 // Call the setup function after the DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
@@ -146,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderSkills();
   updateYear();
+  setupScrollAnimations();
 
   // TODO: Wire up your dark mode toggle button here once you add it
 });
