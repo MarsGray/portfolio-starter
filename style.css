@@ -10,7 +10,8 @@
   --color-accent: #a53860; /* Burgundy for accents */
   --color-accent-hover: #822c4e; /* Darker burgundy for hover states */
   --color-border: #e8dcd5; /* Soft cream for borders */
-  --font-main: 'Segoe UI', system-ui, sans-serif;
+  --font-main: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
   --radius: 8px;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: 0.3s ease;
@@ -45,6 +46,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.7;
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -97,9 +99,11 @@ a:hover {
 }
 
 .nav-logo {
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.2rem;
   color: var(--color-accent);
+  letter-spacing: 0.02em;
 }
 
 .nav-links {
@@ -111,10 +115,63 @@ a:hover {
 .nav-links a {
   color: var(--color-text);
   font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .nav-links a:hover {
   color: var(--color-accent);
+}
+
+.dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-bg) 88%, var(--color-accent) 12%);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition),
+    border-color var(--transition), box-shadow var(--transition), color var(--transition);
+}
+
+.dark-mode-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.dark-mode-toggle:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 28%, transparent);
+  outline-offset: 3px;
+}
+
+.dark-mode-toggle__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
+.dark-mode-toggle__text {
+  letter-spacing: 0.01em;
+}
+
+[data-theme="dark"] .dark-mode-toggle {
+  background: color-mix(in srgb, var(--color-bg) 84%, var(--color-accent) 16%);
+}
+
+[data-theme="dark"] .dark-mode-toggle__icon {
+  background: var(--color-border);
 }
 
 /* TODO: The nav isn't responsive on mobile yet.
@@ -138,10 +195,12 @@ a:hover {
 }
 
 .hero h1 {
+  font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 1rem;
-  line-height: 1.2;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 .highlight {
@@ -152,6 +211,9 @@ a:hover {
   font-size: 1.25rem;
   color: var(--color-text-muted);
   margin-bottom: 2rem;
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ============================================================
@@ -204,11 +266,14 @@ a:hover {
 }
 
 h2 {
+  font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
   position: relative;
   display: inline-block;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 /* Accent underline on section headings */
@@ -243,6 +308,12 @@ h2::after {
 
 .about-text p + p {
   margin-top: 1rem;
+}
+
+.about-text p,
+.contact-intro,
+.project-card p {
+  max-width: 65ch;
 }
 
 .avatar-placeholder {
@@ -292,9 +363,11 @@ h2::after {
 }
 
 .project-card h3 {
+  font-family: var(--font-display);
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   color: var(--color-text);
+  line-height: 1.2;
 }
 
 .project-card p {
@@ -382,7 +455,7 @@ h2::after {
   border-radius: var(--radius);
   font-size: 0.9rem;
   font-weight: 500;
-  /* TODO: Ask Copilot to add an emoji or icon prefix to each badge */
+  letter-spacing: 0.01em;
 }
 
 /* ============================================================

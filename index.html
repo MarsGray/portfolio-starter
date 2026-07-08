@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amari Gray's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -18,8 +24,15 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="dark-mode-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
-        🌙
+      <button
+        class="dark-mode-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false"
+        onclick="toggleDarkMode()"
+      >
+        <span class="dark-mode-toggle__icon" aria-hidden="true">◐</span>
+        <span class="dark-mode-toggle__text">Dark mode</span>
       </button>
     </nav>
 
@@ -137,11 +150,11 @@
       </p>
       <div class="contact-links">
         <!-- TODO: Add your real links -->
-        <a href="mailto:you@email.com" class="btn">✉️ Email Me</a>
-        <a href="https://github.com/yourusername" class="btn btn-outline" target="_blank">
+        <a href="mailto:amarivg2014@gmail.com" class="btn">✉️ Email Me</a>
+        <a href="https://github.com/MarsGray" class="btn btn-outline" target="_blank">
           GitHub
         </a>
-        <a href="https://linkedin.com/in/yourprofile" class="btn btn-outline" target="_blank">
+        <a href="https://linkedin.com/in/amarigray/" class="btn btn-outline" target="_blank">
           LinkedIn
         </a>
       </div>

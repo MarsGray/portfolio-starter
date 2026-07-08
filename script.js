@@ -31,10 +31,10 @@ const projects = [
 // Ask Copilot to help format this list based on your resume.
 // ============================================================
 const skills = [
-  "Python", "JavaScript", "Java", "C",
+  "Python", "R", "C++",
   "HTML & CSS", "Git & GitHub",
-  "React", "Node.js",
-  "SQL", "Linux",
+  "React", "CLI",
+  "SQL", "PHP"
 ];
 
 // ============================================================
@@ -95,6 +95,24 @@ function setupPosterModal() {
   });
 }
 
+function syncDarkModeToggle(theme) {
+  const toggle = document.querySelector(".dark-mode-toggle");
+  if (!toggle) return;
+
+  const isDarkMode = theme === "dark";
+  const text = toggle.querySelector(".dark-mode-toggle__text");
+  const icon = toggle.querySelector(".dark-mode-toggle__icon");
+
+  toggle.setAttribute("aria-pressed", String(isDarkMode));
+  toggle.setAttribute(
+    "aria-label",
+    isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+  );
+
+  if (text) text.textContent = isDarkMode ? "Light mode" : "Dark mode";
+  if (icon) icon.textContent = isDarkMode ? "☀" : "◐";
+}
+
 // ============================================================
 // SCROLL ANIMATIONS
 // ============================================================
@@ -150,20 +168,18 @@ function renderSkills() {
 function toggleDarkMode() {
   const html = document.documentElement; // Select the <html> element
   const isDarkMode = html.getAttribute("data-theme") === "dark";
+  const nextTheme = isDarkMode ? "light" : "dark";
 
-  if (isDarkMode) {
-    html.setAttribute("data-theme", "light"); // Switch to light mode
-    localStorage.setItem("theme", "light"); // Save preference
-  } else {
-    html.setAttribute("data-theme", "dark"); // Switch to dark mode
-    localStorage.setItem("theme", "dark"); // Save preference
-  }
+  html.setAttribute("data-theme", nextTheme);
+  localStorage.setItem("theme", nextTheme);
+  syncDarkModeToggle(nextTheme);
 }
 
 // Apply saved theme preference on page load
 document.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme") || "light"; // Default to light mode
   document.documentElement.setAttribute("data-theme", savedTheme);
+  syncDarkModeToggle(savedTheme);
 });
 
 // ============================================================
