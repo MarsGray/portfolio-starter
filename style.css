@@ -3,28 +3,28 @@
    TODO: Try asking Copilot to suggest a color palette for you.
    ============================================================ */
 :root {
-  --color-bg: #ffffff;
-  --color-bg-alt: #f5f7fa;
-  --color-text: #1a1a2e;
-  --color-text-muted: #555577;
-  --color-accent: #4f46e5;
-  --color-accent-hover: #4338ca;
-  --color-border: #e2e8f0;
+  --color-bg: #fdf6f0; /* Cream background */
+  --color-bg-alt: #f7ede2; /* Lighter cream for alternate sections */
+  --color-text: #4a2c2a; /* Dark burgundy for text */
+  --color-text-muted: #7d5e5a; /* Muted burgundy for secondary text */
+  --color-accent: #a53860; /* Burgundy for accents */
+  --color-accent-hover: #822c4e; /* Darker burgundy for hover states */
+  --color-border: #e8dcd5; /* Soft cream for borders */
   --font-main: 'Segoe UI', system-ui, sans-serif;
-  --radius: 10px;
-  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  --transition: 0.2s ease;
+  --radius: 8px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease;
 }
 
 [data-theme="dark"] {
-  --color-bg: #1a1a2e;
-  --color-bg-alt: #121212;
-  --color-text: #e0e0e0;
-  --color-text-muted: #a0a0a0;
-  --color-accent: #bb86fc;
-  --color-accent-hover: #985eff;
-  --color-border: #333;
-  --shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  --color-bg: #2a1e1d; /* Dark burgundy background */
+  --color-bg-alt: #3e2d2b; /* Slightly lighter dark burgundy */
+  --color-text: #fdf6f0; /* Cream for text */
+  --color-text-muted: #d8c4be; /* Muted cream for secondary text */
+  --color-accent: #d45d79; /* Lighter burgundy for accents */
+  --color-accent-hover: #b34763; /* Slightly darker burgundy for hover states */
+  --color-border: #4a2c2a; /* Dark burgundy for borders */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* ============================================================
@@ -392,50 +392,13 @@ footer {
    TODO: This is a start, but there's more to do on mobile.
    Ask Copilot: "Improve the responsive styles for screens under 600px"
    ============================================================ */
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-   @media (max-width: 600px) {
-    /* Stack nav links or hide them */
-    .nav-links {
-      display: none; /* Hide nav links by default */
-    }
-  
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .dark-mode-toggle {
-      margin-top: 1rem;
-    }
-  
-    /* Hero text adjustments */
-    .hero h1 {
-      font-size: 2rem; /* Smaller font size */
-    }
-  
-    .hero-subtitle {
-      font-size: 1rem; /* Adjust subtitle size */
-    }
-  
-    /* Projects grid single-column */
-    .projects-grid {
-      grid-template-columns: 1fr; /* Single column */
-    }
-  
-    /* About section adjustments */
-    .about-grid {
-      grid-template-columns: 1fr; /* Stack content */
-      text-align: center; /* Center-align text */
-    }
-  
-    .about-image {
-      margin: 0 auto; /* Center the image */
-    }
-  
-    /* Skills section adjustments */
-    .skills-container {
-      justify-content: center; /* Center skills badges */
-    }
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
   }
+
+  .avatar-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+}

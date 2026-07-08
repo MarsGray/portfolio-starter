@@ -28,13 +28,54 @@
     ============================================================ -->
     <section class="hero" id="hero">
       <div class="hero-content">
-        <h1>Hi, I'm <span class="highlight">Amari Gray</span> 👋</h1>
-        <!-- TODO: Update this tagline — try asking Copilot to help you write one
-             based on your background and interests -->
-        <p class="hero-subtitle">A recent Morehouse College graduate with a bachelor's in computer science, passionate about advancing the field of data science.</p>
-        <a href="#projects" class="btn">See My Work</a>
+      <h1 class="typing-container">
+        <span class="typing-animation">
+          <span class="intro-text">Hi, I'm</span> 
+          <span class="name-text">Amari Gray</span>
+        </span> 👋
+      </h1>
+      <p class="hero-subtitle">A recent Morehouse College graduate with a bachelor's in computer science, passionate about advancing the field of data science.</p>
+      <a href="#projects" class="btn">See My Work</a>
       </div>
-    </section>
+        </section>
+
+        <style>
+      /* Typing animation styles */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      .typing-container {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid var(--text-color, black);
+        animation: typing 4s steps(40, end), blink 0.5s step-end infinite;
+      }
+
+      .typing-animation {
+        display: inline-block;
+      }
+
+      .intro-text {
+        color: var(--text-color, black);
+      }
+
+      .name-text {
+        color: var(--accent-color, rgb(165, 56, 96)); /* Use a custom property for theming */
+      }
+        </style>
 
     <!-- ============================================================
          ABOUT
