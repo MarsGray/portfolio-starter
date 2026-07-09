@@ -97,6 +97,198 @@ a:hover {
 }
 
 /* ============================================================
+   PIXEL TIGER
+   ============================================================ */
+.pixel-tiger {
+  --tiger-x: 0px;
+  --tiger-y: 0px;
+  --tiger-direction: 1;
+  position: fixed;
+  top: 0.35rem;
+  left: 0;
+  z-index: 250;
+  width: 5rem;
+  height: 3.25rem;
+  pointer-events: none;
+  transform: translate3d(var(--tiger-x), var(--tiger-y), 0)
+    scaleX(var(--tiger-direction));
+  transform-origin: center;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0.2rem 0 rgba(74, 44, 42, 0.22));
+}
+
+.pixel-tiger__body,
+.pixel-tiger__head,
+.pixel-tiger__ear,
+.pixel-tiger__leg,
+.pixel-tiger__tail,
+.pixel-tiger__muzzle,
+.pixel-tiger__stripe,
+.pixel-tiger__eye {
+  position: absolute;
+  border-radius: 2px;
+}
+
+.pixel-tiger__body,
+.pixel-tiger__head,
+.pixel-tiger__ear,
+.pixel-tiger__leg,
+.pixel-tiger__tail {
+  background: #e8791a;
+  box-shadow: inset 0 -0.25rem 0 #b94f18;
+}
+
+.pixel-tiger__body {
+  left: 1.05rem;
+  top: 1rem;
+  width: 2.85rem;
+  height: 1.25rem;
+}
+
+.pixel-tiger__head {
+  right: 0.35rem;
+  top: 0.7rem;
+  width: 1.25rem;
+  height: 1.15rem;
+}
+
+.pixel-tiger__ear {
+  top: 0.25rem;
+  width: 0.45rem;
+  height: 0.55rem;
+}
+
+.pixel-tiger__ear--front {
+  right: 0.42rem;
+}
+
+.pixel-tiger__ear--back {
+  right: 1rem;
+}
+
+.pixel-tiger__tail {
+  left: 0.2rem;
+  top: 0.8rem;
+  width: 1.15rem;
+  height: 0.42rem;
+  transform: rotate(-24deg);
+  transform-origin: right center;
+  animation: tiger-tail 0.8s steps(2, end) infinite;
+}
+
+.pixel-tiger__tail::before {
+  content: '';
+  position: absolute;
+  left: -0.14rem;
+  top: -0.02rem;
+  width: 0.34rem;
+  height: 0.46rem;
+  background: #2a1e1d;
+  border-radius: 2px;
+}
+
+.pixel-tiger__leg {
+  top: 2.05rem;
+  width: 0.45rem;
+  height: 0.95rem;
+  transform-origin: top center;
+  animation: tiger-step 0.5s steps(2, end) infinite;
+}
+
+.pixel-tiger__leg--front {
+  right: 1rem;
+}
+
+.pixel-tiger__leg--back {
+  left: 1.55rem;
+  animation-delay: -0.25s;
+}
+
+.pixel-tiger__leg::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.1rem;
+  width: 0.65rem;
+  height: 0.25rem;
+  background: #2a1e1d;
+  border-radius: 2px;
+}
+
+.pixel-tiger__muzzle {
+  right: 0.1rem;
+  top: 1.25rem;
+  width: 0.55rem;
+  height: 0.35rem;
+  background: #ffe0ad;
+}
+
+.pixel-tiger__eye {
+  right: 0.55rem;
+  top: 1rem;
+  width: 0.16rem;
+  height: 0.16rem;
+  background: #2a1e1d;
+}
+
+.pixel-tiger__stripe {
+  width: 0.18rem;
+  background: #2a1e1d;
+}
+
+.pixel-tiger__stripe--body-1 {
+  left: 1.65rem;
+  top: 1rem;
+  height: 0.9rem;
+}
+
+.pixel-tiger__stripe--body-2 {
+  left: 2.35rem;
+  top: 1rem;
+  height: 1.05rem;
+}
+
+.pixel-tiger__stripe--body-3 {
+  left: 3.05rem;
+  top: 1rem;
+  height: 0.85rem;
+}
+
+.pixel-tiger__stripe--head {
+  right: 0.85rem;
+  top: 0.72rem;
+  height: 0.55rem;
+}
+
+@keyframes tiger-step {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-0.12rem) rotate(12deg);
+  }
+}
+
+@keyframes tiger-tail {
+  0%,
+  100% {
+    transform: rotate(-24deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-tiger {
+    display: none;
+  }
+}
+
+/* ============================================================
    SCROLL REVEALS
    ============================================================ */
 .reveal {

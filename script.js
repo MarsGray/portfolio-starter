@@ -144,6 +144,76 @@ function setupScrollAnimations() {
   animatedElements.forEach((element) => observer.observe(element));
 }
 
+// ============================================================
+// PIXEL TIGER
+// ============================================================
+function setupPixelTiger() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reduceMotion.matches) return;
+
+  const tiger = document.createElement("div");
+  tiger.className = "pixel-tiger";
+  tiger.setAttribute("aria-hidden", "true");
+  tiger.innerHTML = `
+    <span class="pixel-tiger__tail"></span>
+    <span class="pixel-tiger__body"></span>
+    <span class="pixel-tiger__head"></span>
+    <span class="pixel-tiger__ear pixel-tiger__ear--back"></span>
+    <span class="pixel-tiger__ear pixel-tiger__ear--front"></span>
+    <span class="pixel-tiger__muzzle"></span>
+    <span class="pixel-tiger__eye"></span>
+    <span class="pixel-tiger__stripe pixel-tiger__stripe--body-1"></span>
+    <span class="pixel-tiger__stripe pixel-tiger__stripe--body-2"></span>
+    <span class="pixel-tiger__stripe pixel-tiger__stripe--body-3"></span>
+    <span class="pixel-tiger__stripe pixel-tiger__stripe--head"></span>
+    <span class="pixel-tiger__leg pixel-tiger__leg--back"></span>
+    <span class="pixel-tiger__leg pixel-tiger__leg--front"></span>
+  `;
+  document.body.appendChild(tiger);
+
+  let x = Math.min(32, window.innerWidth - tiger.offsetWidth);
+  let direction = 1;
+  let lastTime = performance.now();
+  const speed = 42;
+
+  function setTigerPosition() {
+    const nav = document.querySelector(".navbar");
+    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+    const y = Math.max(4, navHeight - tiger.offsetHeight + 6);
+
+    tiger.style.setProperty("--tiger-x", `${x}px`);
+    tiger.style.setProperty("--tiger-y", `${y}px`);
+    tiger.style.setProperty("--tiger-direction", direction);
+  }
+
+  function walk(currentTime) {
+    const elapsedSeconds = (currentTime - lastTime) / 1000;
+    lastTime = currentTime;
+
+    const maxX = Math.max(0, window.innerWidth - tiger.offsetWidth - 8);
+    x += direction * speed * elapsedSeconds;
+
+    if (x >= maxX) {
+      x = maxX;
+      direction = -1;
+    } else if (x <= 8) {
+      x = 8;
+      direction = 1;
+    }
+
+    setTigerPosition();
+    requestAnimationFrame(walk);
+  }
+
+  window.addEventListener("resize", () => {
+    x = Math.min(x, Math.max(8, window.innerWidth - tiger.offsetWidth - 8));
+    setTigerPosition();
+  });
+
+  setTigerPosition();
+  requestAnimationFrame(walk);
+}
+
 // Call the setup function after the DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
@@ -198,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSkills();
   updateYear();
   setupScrollAnimations();
+  setupPixelTiger();
 
   // TODO: Wire up your dark mode toggle button here once you add it
 });
