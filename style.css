@@ -915,3 +915,138 @@ footer {
     height: 100px;
   }
 }
+
+@media (max-width: 600px) {
+  body::before,
+  body::after,
+  .hero::before,
+  .hero::after,
+  .section-alt::before,
+  .section-alt::after {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+    padding: 1rem;
+  }
+
+  .nav-logo {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem 1rem;
+  }
+
+  .dark-mode-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 3.5rem 1rem 3rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 10vw, 2.5rem);
+    line-height: 1.08;
+  }
+
+  .typing-container {
+    white-space: normal;
+    border-right: 0;
+    animation: none;
+  }
+
+  .typing-animation {
+    display: inline;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .section,
+  .section-alt {
+    padding: 4rem 1rem;
+  }
+
+  .section + .section::before {
+    width: calc(100% - 2rem);
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-grid,
+  .beyond-code-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    gap: 1.25rem;
+  }
+
+  .project-card,
+  .beyond-code-card {
+    padding: 1.25rem;
+  }
+
+  .project-poster {
+    max-width: 100%;
+  }
+
+  .about-image .avatar,
+  .avatar-placeholder {
+    max-width: 160px;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn,
+  .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .skills-container {
+    gap: 0.6rem;
+  }
+
+  .skill-badge {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .beyond-code__intro,
+  .about-text p,
+  .contact-intro,
+  .project-card p {
+    max-width: 100%;
+  }
+
+  .modal .close {
+    top: 16px;
+    right: 18px;
+    font-size: 2.2rem;
+  }
+}
