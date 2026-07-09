@@ -85,11 +85,11 @@ I then asked it to improve the bio some more and to change how it wrote about my
 - **What I changed or did next:** I did not provide any other changes or did any more prompts for this feature.
 
 ### Entry 8 — A prompt that didn't work well
-- **Copilot feature used:** 
-- **What I asked:**
+- **Copilot feature used:** Plan mode, Agent Mode
+- **What I asked:** Add modal windows for the posters in my projects section. When a user clicks on a poster, the poster should expand to a larger view.
   > 
-- **What went wrong:** 
-- **How I fixed it (revised prompt or manual edit):** 
+- **What went wrong:** Originally, i was using copilot free and the code that was generated was not correct and had bugs.
+- **How I fixed it (revised prompt or manual edit):** Fixed it by using copilot student and first asking it to review the previous code in plan mode and then generating the correct code in agent mode.
 
 ---
 
@@ -97,24 +97,28 @@ I then asked it to improve the bio some more and to change how it wrote about my
 
 **1. What feature are you most proud of?**
 
-*(Write a few sentences.)*
+The feature I am most proud of is the modal window for my posters in the projects section. I was worried I was not going to be able to get it to work properly but after a few prompts and edits, I was able to get it to work properly.
 
 ---
 
 **2. Describe a time Copilot gave you something wrong or unhelpful. What did you do?**
 
-*(Be specific — this is one of the most valuable things to reflect on.)*
+I scrapped it but I was trying to add symbols to all of the skills in the skills section. I was not giving me what I wanted. I want the logos for each skill next to the skill but instead I got bullet points and when I used another prompt to rectify that I got random emojis. So I scrapped it and left the skills section as it was.
 
 ---
 
 **3. What did you learn about writing better prompts?**
 
-*(What made a prompt work well? What made one fail?)*
+A prompt worked well when I gave it a lot of context and did not give an overly long prompt. I also learned that if what I asked for was not what I wanted, I can keep on prompting it until I get what I want. I don't have to completely scrap the chat and try again.
 
 ---
 
 **4. What's one part of the codebase you now understand better than at the start?**
 
+The script.js file. I dont use javascript often and was unsure of what I was looking at, but after using it to add my skills and my projects I was able to understand what the file was doing and how it was being used in the website.
+
 ---
 
 **5. What would you build or improve next?**
+
+Maybe play with adding more tabs. I would also improve it more to showcase more of my personality. The website still resembles the template that was given. I want to make the website to be more of my own.
