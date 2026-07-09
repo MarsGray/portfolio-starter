@@ -47,6 +47,43 @@ body {
   color: var(--color-text);
   line-height: 1.7;
   letter-spacing: 0.01em;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(20px);
+  opacity: 0.55;
+}
+
+body::before {
+  top: 6rem;
+  right: -5rem;
+  width: 16rem;
+  height: 16rem;
+  background: radial-gradient(
+    circle at 30% 30%,
+    color-mix(in srgb, var(--color-accent) 22%, transparent) 0%,
+    transparent 72%
+  );
+}
+
+body::after {
+  left: -6rem;
+  bottom: 10rem;
+  width: 18rem;
+  height: 18rem;
+  background: radial-gradient(
+    circle at 60% 40%,
+    color-mix(in srgb, var(--color-border) 55%, transparent) 0%,
+    transparent 70%
+  );
 }
 
 a {
@@ -188,10 +225,48 @@ a:hover {
   text-align: center;
   padding: 4rem 2rem;
   background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.hero::before {
+  top: 10%;
+  left: -4rem;
+  width: 12rem;
+  height: 12rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-accent) 18%, transparent) 0%,
+    transparent 72%
+  );
+}
+
+.hero::after {
+  right: -3rem;
+  bottom: 8%;
+  width: 10rem;
+  height: 10rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-border) 70%, transparent) 0%,
+    transparent 70%
+  );
 }
 
 .hero-content {
   max-width: 700px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -249,15 +324,77 @@ a:hover {
    SECTIONS
    ============================================================ */
 .section {
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.section + .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1000px, calc(100% - 4rem));
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-border) 80%, transparent),
+    transparent
+  );
 }
 
 .section-alt {
-  background: var(--color-bg-alt);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-bg-alt) 94%, var(--color-accent) 6%) 0%,
+      var(--color-bg-alt) 100%
+    );
   max-width: 100%;
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-alt::before,
+.section-alt::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.section-alt::before {
+  top: 0;
+  width: min(1200px, 140vw);
+  height: 120px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-accent) 10%, transparent) 0%,
+    transparent 100%
+  );
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+  opacity: 0.45;
+}
+
+.section-alt::after {
+  bottom: -1px;
+  width: min(900px, 90vw);
+  height: 100px;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--color-accent) 9%, transparent) 0%,
+    transparent 70%
+  );
+  filter: blur(10px);
+  opacity: 0.5;
 }
 
 .section-alt > * {
