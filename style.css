@@ -453,6 +453,89 @@ h2::after {
   max-width: 65ch;
 }
 
+/* ============================================================
+   BEYOND CODE
+   ============================================================ */
+.beyond-code {
+  max-width: 100%;
+}
+
+.beyond-code__intro {
+  max-width: 60ch;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.beyond-code-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.beyond-code-card {
+  background: color-mix(in srgb, var(--color-bg) 88%, var(--color-accent) 12%);
+  border: 1px solid color-mix(in srgb, var(--color-border) 78%, transparent);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.beyond-code-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 0.35rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    color-mix(in srgb, var(--color-accent) 55%, var(--color-bg-alt))
+  );
+}
+
+.beyond-code-card__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.beyond-code-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.beyond-code-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.beyond-code-list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--color-text);
+}
+
+.beyond-code-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translateY(-50%);
+}
+
 .avatar-placeholder {
   width: 100%;
   max-width: 200px;
@@ -628,6 +711,10 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
   .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beyond-code-grid {
     grid-template-columns: 1fr;
   }
 
